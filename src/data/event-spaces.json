@@ -1,0 +1,87 @@
+[
+  {
+    "id": "billungstube",
+    "name": "Billungstube",
+    "location": "Romantik Hotel am Brühl",
+    "capacity_persons": 40,
+    "use_cases": ["Feiern", "Familienfeier", "Firmenfeier"],
+    "description_de": "Die Billungstube im Romantik Hotel am Brühl bietet Platz für bis zu 40 Personen und ist ideal für Feiern im eleganten Rahmen.",
+    "catering": true,
+    "overnight_guests": true
+  },
+  {
+    "id": "bruehlstube",
+    "name": "Brühlstube",
+    "location": "Romantik Hotel am Brühl",
+    "capacity_persons": 20,
+    "use_cases": ["Tagungen", "Meetings", "Kleingruppen"],
+    "description_de": "Die Brühlstube ist ein stilvoller Raum für kleinere Gruppen bis 20 Personen — ideal für Meetings, Workshops und intime Feiern.",
+    "catering": true,
+    "overnight_guests": true,
+    "tour_360_url": "/360-rundgang-bruehlstube"
+  },
+  {
+    "id": "galerie",
+    "name": "Galerie",
+    "location": "Romantik Hotel am Brühl (Haupthaus)",
+    "capacity_persons": 70,
+    "use_cases": ["Feiern", "Konferenzen", "Präsentationen", "Empfänge"],
+    "description_de": "Die Galerie im Haupthaus bietet Platz für bis zu 70 Personen und ist der größte Veranstaltungsraum im Hotel — geeignet für Tagungen, Präsentationen und festliche Anlässe.",
+    "catering": true,
+    "overnight_guests": true
+  },
+  {
+    "id": "tagungsraum-hotel",
+    "name": "Tagungsraum",
+    "location": "Romantik Hotel am Brühl",
+    "capacity_persons": 60,
+    "use_cases": ["Tagungen", "Konferenzen", "Präsentationen", "Workshops"],
+    "description_de": "Entspannt arbeiten: Ambiente, Service, Technik und Ausstattung sorgen für einen entspannten und persönlichen Rahmen, der Raum für kreatives Arbeiten lässt. Der große Raum bietet Platz für 60 Personen und eignet sich bestens für Präsentationen.",
+    "tech_equipment": [
+      "86-Zoll-Smartboard mit Videokonferenzkamera",
+      "WLAN-Internetzugang",
+      "Flipchart",
+      "Metaplanwände"
+    ],
+    "catering": true,
+    "day_rate_per_person_from_eur": 41,
+    "day_rate_includes": ["Technische Ausstattung", "Catering / Kaffeepausen"],
+    "tour_360_url": "/360-rundgang-tagungsraum"
+  },
+  {
+    "id": "le-mariage-saal",
+    "name": "Le Mariage — Festsaal",
+    "location": "Eventlocation Le Mariage (Villa gegenüber dem Hotel)",
+    "capacity_persons": 40,
+    "use_cases": ["Hochzeiten", "Feiern", "Fine Dining Events", "Firmenevents"],
+    "description_de": "In unserer Eventlocation „Le Mariage” finden Sie alles was Ihr Herz begehrt. Die unvergleichliche Atmosphäre einer historischen Villa gepaart mit einer festlich modernen Einrichtung. Ein Ort, wie geschaffen, um die wirklich großen Momente im Leben zu feiern. Großzügiger Saal für bis zu 40 Personen, Bar, Parkgarten.",
+    "special_features": [
+      "Standesamt-Außenstelle (offiziell anerkannt)",
+      "Wintergarten für standesamtliche oder freie Trauung",
+      "Bar",
+      "Parkgarten",
+      "Übernachtungsmöglichkeit für bis zu 10 Personen in der Villa",
+      "Hochzeitssuite"
+    ],
+    "wedding_legal": true,
+    "civil_ceremony": true,
+    "free_ceremony": true,
+    "catering": true,
+    "overnight_capacity": 10,
+    "tour_360_url": "/360-rundgang-le-mariage-festsaal"
+  },
+  {
+    "id": "le-mariage-tagungsraum",
+    "name": "Le Mariage — Tagungsraum",
+    "location": "Eventlocation Le Mariage (Villa gegenüber dem Hotel)",
+    "capacity_persons": 12,
+    "use_cases": ["Tagungen", "High-End-Meetings", "Workshops"],
+    "description_de": "Einen stilvollen Rahmen für die besonderen Meetings bildet der Tagungsraum in der Eventlocation Le Mariage. Mit High-End-Technologie ausgestattet bietet der Tagungsraum Platz für bis zu 12 Personen. Die Pausen verbringen Sie in der großzügigen Gartenanlage.",
+    "tech_equipment": [
+      "High-End-Präsentationstechnik"
+    ],
+    "catering": true,
+    "garden_access": true,
+    "tour_360_url": "/360-rundgang-tagungsraum-le-mariage"
+  }
+]

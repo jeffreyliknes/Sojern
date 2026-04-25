@@ -1,0 +1,118 @@
+[
+  {
+    "id": "gourmets",
+    "name": "Für Gourmets",
+    "name_en": "For Gourmets",
+    "slug": "gourmets",
+    "min_nights": 2,
+    "description_de": "Sie suchen ein kulinarisches Highlight, etwas ganz Besonderes? Für die Gourmets unter Ihnen haben wir uns etwas Feines ausgedacht. Am Abend verwöhnen wir Sie in unserem Restaurant Weinstube. Am ersten Abend genießen Sie unser saisonales Menü in drei Gängen und am zweiten Abend zelebriert unser Küchenchef Sebastian Lorenz ein besonderes Menü in 6 Gängen für Sie. Am zweiten Abend genießen Sie die Weinbegleitung zum Menü. Zwischen den kulinarischen Genüssen bleibt sicher noch ein wenig Zeit, die Welterbestadt Quedlinburg mit ihren zahlreichen pittoresken Fachwerkhäusern zu erkunden.",
+    "includes": [
+      "Übernachtung mit Frühstücksbuffet",
+      "1. Abend: Saisonales 3-Gänge-Menü in der Weinstube",
+      "2. Abend: 6-Gänge-Menü von Küchenchef Sebastian Lorenz",
+      "Weinbegleitung zum 6-Gänge-Menü am 2. Abend"
+    ],
+    "cancellation": "Kostenfreie Stornierung bis 3 Tage vor Anreise"
+  },
+  {
+    "id": "kulturliebhaber",
+    "name": "Für Kulturliebhaber",
+    "name_en": "For Culture Lovers",
+    "slug": "kulturliebhaber",
+    "min_nights": 2,
+    "description_de": "Eine Stadt wie ein Bild – unsere UNESCO-Welterbestadt Quedlinburg lädt Sie ein, einzutauchen ins Mittelalter mit all ihren malerischen Gassen, vielen Fachwerkbauten und romanischen Kirchen. Bei einer professionellen Führung durch die märchenhafte Kulisse Quedlinburgs erfahren Sie Spannendes zu Geschichte, Leben, Baukunst und hören so manche Anekdote. Abends gibt es Erholung für die müden Füße und ein Drei-Gänge-Menü in der Weinstube am Brühl.",
+    "includes": [
+      "Übernachtung mit Frühstücksbuffet",
+      "Professionelle Stadtführung durch Quedlinburg",
+      "Buch „Quedlinburg an einem Tag”",
+      "Hotel-Regenschirm",
+      "3-Gänge-Abendmenü in der Weinstube am Brühl"
+    ],
+    "cancellation": "Kostenfreie Stornierung bis 3 Tage vor Anreise"
+  },
+  {
+    "id": "kleine-auszeit",
+    "name": "Kleine Auszeit",
+    "name_en": "Little Escape",
+    "slug": "kleine-auszeit",
+    "min_nights": 2,
+    "description_de": "Machen Sie einfach mal blau! Wandeln Sie am Nachmittag entspannt durch die Gassen der Welterbestadt und genießen Sie am Abend ein saisonales Abendmenü in 2 Gängen. Genießen Sie am Abreisetag bis 12 Uhr den Komfort Ihres Hotelzimmers.",
+    "includes": [
+      "Übernachtung mit Frühstücksbuffet",
+      "Saisonales 2-Gänge-Abendmenü",
+      "Late Check-out bis 12:00 Uhr"
+    ],
+    "cancellation": "Kostenfreie Stornierung bis 3 Tage vor Anreise"
+  },
+  {
+    "id": "inside-beyond",
+    "name": "The Quedlinburger „Inside & Beyond”",
+    "name_en": "The Quedlinburger Inside & Beyond",
+    "slug": "inside-beyond",
+    "min_nights": 2,
+    "description_de": "Erkunden Sie die Welterbestadt auf eine ganz besondere Weise. „The Quedlinburger – Inside & Beyond” ist kein typischer Stadtführer. Es ist ein kultur- und designorientiertes Erzählbuch. Erhalten Sie Einblicke in die innere Welt der Stadt, verbinden Sie Orte und Menschen miteinander. Am ersten Abend zelebrieren Sie mit unserem Küchenchef Sebastian Lorenz ein Menü in 6 Gängen mit Weinbegleitung im Restaurant Weinstube.",
+    "includes": [
+      "Übernachtung mit Frühstücksbuffet",
+      "Buch „The Quedlinburger – Inside & Beyond”",
+      "6-Gänge-Menü mit Weinbegleitung in der Weinstube"
+    ],
+    "cancellation": "Kostenfreie Stornierung bis 3 Tage vor Anreise"
+  },
+  {
+    "id": "stadtgefluester",
+    "name": "Stadtgeflüster",
+    "name_en": "City Whispers",
+    "slug": "stadtgefluester",
+    "min_nights": 2,
+    "description_de": "Tauchen Sie ein in die UNESCO-Welterbestadt Quedlinburg mit all ihren malerischen Gässchen, vielen Fachwerkbauten und romanischen Kirchen. Bei einer professionellen Führung durch die märchenhafte Kulisse Quedlinburgs erfahren Sie Spannendes zu Geschichte, Leben, Baukunst und hören so manche Anekdote. Abends gibt es Erholung für die müden Füße.",
+    "includes": [
+      "Übernachtung mit Frühstücksbuffet",
+      "Professionelle Stadtführung durch Quedlinburg",
+      "Abendmenü"
+    ],
+    "cancellation": "Kostenfreie Stornierung bis 3 Tage vor Anreise"
+  },
+  {
+    "id": "liebhaber",
+    "name": "Für Liebhaber",
+    "name_en": "For Lovers",
+    "slug": "liebhaber",
+    "min_nights": 2,
+    "description_de": "Für alle, die sich liebhaben und den Alltag hinter sich lassen möchten. Sich verwöhnen lassen. Einfach mal durchatmen und nichts tun. Machen Sie es sich gemütlich, genießen Sie unsere Flasche Sekt und einen Gruß vom Haus. Besondere kulinarische Genüsse erwarten Sie an zwei Abenden in unserer Weinstube. Das Team um Küchenchef Sebastian Lorenz serviert Ihnen ein Drei- und Vier-Gang-Menü, das sich nach den Jahreszeiten richtet.",
+    "includes": [
+      "Übernachtung mit Frühstücksbuffet",
+      "Flasche Sekt & Gruß vom Haus",
+      "1. Abend: 3-Gänge-Menü in der Weinstube",
+      "2. Abend: 4-Gänge-Menü in der Weinstube",
+      "Rabatt auf weitere Leistungen"
+    ],
+    "cancellation": "Kostenfreie Stornierung bis 3 Tage vor Anreise"
+  },
+  {
+    "id": "advent",
+    "name": "Advent in den Höfen",
+    "name_en": "Advent in the Courtyards",
+    "slug": "advent",
+    "seasonal": true,
+    "season": "Dezember",
+    "description_de": "Erleben Sie die Adventszeit in der romantischen Welterbestadt Quedlinburg. Der traditionelle Weihnachtsmarkt „Advent in den Höfen” verzaubert die historischen Innenhöfe der Stadt mit Lichterglanz, Musik und festlichem Treiben. Das perfekte Programm für eine besinnliche Auszeit zur Weihnachtszeit.",
+    "includes": [
+      "Übernachtung mit Frühstücksbuffet",
+      "Adventsmarkt-Besuche in den historischen Höfen Quedlinburgs"
+    ]
+  },
+  {
+    "id": "weihnachten-silvester",
+    "name": "Weihnachten & Silvester",
+    "name_en": "Christmas & New Year",
+    "slug": "weihnachten-silvester",
+    "seasonal": true,
+    "season": "Dezember–Januar",
+    "description_de": "Verbringen Sie Weihnachten und den Jahreswechsel im Weltkulturerbe Quedlinburg. Unser Haus bietet festliche Atmosphäre, besondere Menüs und ein unvergessliches Programm für die schönsten Feiertage des Jahres.",
+    "includes": [
+      "Übernachtung mit Frühstücksbuffet",
+      "Festliche Weihnachts- und Silvestermenüs",
+      "Besonderes Rahmenprogramm"
+    ]
+  }
+]

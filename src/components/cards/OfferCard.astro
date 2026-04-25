@@ -1,0 +1,53 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  includes: string[];
+  href?: string;
+  minNights?: number;
+}
+
+const { name, description, includes, href = "/angebote", minNights } = Astro.props;
+---
+
+<article class="offer-card panel">
+  <div>
+    <p class="eyebrow">{minNights ? `${minNights} Nächte` : "Saisonal"}</p>
+    <h3>{name}</h3>
+    <p>{description}</p>
+  </div>
+  <ul>
+    {includes.slice(0, 3).map((item) => <li>{item}</li>)}
+  </ul>
+  <a class="link-arrow" href={href}>Angebot ansehen</a>
+</article>
+
+<style>
+  .offer-card {
+    display: grid;
+    gap: 1rem;
+    padding: 1.35rem;
+  }
+
+  h3 {
+    margin: 0.25rem 0 0.65rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  ul {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--stone);
+    font-size: 0.98rem;
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const downloads = [
+  "Speisekarte Weinstube",
+  "Weinstubenmenü",
+  "Getränkekarte",
+  "Kinderkarte",
+  "Grillbuffet Sommer 2025",
+  "Fingerfood",
+  "Tagungsmappe",
+  "Veranstaltungsmappe2025",
+  "AGB Hotel",
+  "AGB Veranstaltungen",
+  "Datenschutz",
+  "Barrierefreiheitserklärung",
+];
+---
+
+<BaseLayout title="Downloads" description="Downloads und Speisekarten des Romantik Hotel am Brühl.">
+  <section class="downloads-hero container">
+    <p class="eyebrow">Downloads</p>
+    <h1 class="display">Downloads</h1>
+    <div class="panel downloads-panel">
+      {downloads.map((item) => (
+        <a href="/downloads">{item}</a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .downloads-hero {
+    display: grid;
+    gap: 1.5rem;
+    padding: 5rem 0;
+  }
+
+  .downloads-panel {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    padding: 1.2rem;
+  }
+
+  .downloads-panel a {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 0.8rem;
+    color: var(--muted);
+  }
+
+  .downloads-panel a:hover {
+    color: var(--gold-bright);
+    border-color: rgba(225, 193, 111, 0.55);
+  }
+
+  @media (max-width: 760px) {
+    .downloads-panel {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

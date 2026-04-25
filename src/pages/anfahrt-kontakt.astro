@@ -1,0 +1,56 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { site } from "@/data/site";
+---
+
+<BaseLayout title="Anfahrt & Kontakt" description="Romantik Hotel am Brühl, Billungstraße 11, 06484 Quedlinburg.">
+  <section class="contact-hero container">
+    <p class="eyebrow">Anfahrt & Kontakt</p>
+    <h1 class="display">Anfahrt & Kontakt</h1>
+    <div class="panel contact-panel">
+      <address>
+        <strong>{site.name}</strong><br />
+        {site.address[0]}<br />
+        {site.address[1]}
+      </address>
+      <p>
+        Telefon: <a href={`tel:${site.phone.replaceAll(" ", "")}`}>{site.phone}</a><br />
+        E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a>
+      </p>
+      <ul>
+        <li>Parkplatz direkt am Hotel: 10 €/Nacht</li>
+        <li>Elektroauto-Laden: Typ-2-Stecker, 22 kW</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-hero {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 900px;
+    padding: 5rem 0;
+  }
+
+  .contact-panel {
+    display: grid;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    color: var(--muted);
+  }
+
+  address {
+    color: var(--ink);
+    font-style: normal;
+  }
+
+  a:hover {
+    color: var(--gold-bright);
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+</style>

@@ -1,0 +1,71 @@
+---
+import { navigation, routes, site } from "@/data/site";
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <img src="/images/brand/logo.svg" alt={site.name} class="footer-logo" />
+      <p>{site.address.join(" / ")}</p>
+      <p>
+        <a href={`tel:${site.phone.replaceAll(" ", "")}`}>{site.phone}</a><br />
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+      </p>
+    </div>
+    <nav aria-label="Fußnavigation">
+      {navigation.map((group) => (
+        <a href={group.href}>{group.label}</a>
+      ))}
+      <a href={routes.contact}>Anfahrt & Kontakt</a>
+    </nav>
+    <div class="footer-cta">
+      <p class="eyebrow">Direkt planen</p>
+      <a class="button" href={routes.booking}>Aufenthalt buchen</a>
+      <a class="button secondary" href={routes.contact}>Kontakt aufnehmen</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 6rem;
+    padding: 4rem 0 2rem;
+    border-top: 1px solid var(--line);
+    background: rgba(10, 9, 7, 0.72);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 0.8fr;
+    gap: 2rem;
+    color: var(--muted);
+  }
+
+  .footer-logo {
+    width: 168px;
+    margin-bottom: 1.5rem;
+    filter: brightness(1.12) sepia(0.18);
+  }
+
+  nav,
+  .footer-cta {
+    display: grid;
+    align-content: start;
+    gap: 0.75rem;
+  }
+
+  nav a:hover,
+  p a:hover {
+    color: var(--gold-bright);
+  }
+
+  .footer-cta .button {
+    width: fit-content;
+  }
+
+  @media (max-width: 760px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

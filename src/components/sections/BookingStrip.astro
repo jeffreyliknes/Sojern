@@ -1,0 +1,48 @@
+---
+import { routes, site } from "@/data/site";
+---
+
+<section class="booking-strip container" aria-label="Buchung und Kontakt">
+  <div>
+    <p class="eyebrow">Anfahrt & Kontakt</p>
+    <p>Romantik Hotel am Brühl · Billungstraße 11 · 06484 Quedlinburg</p>
+  </div>
+  <div class="strip-actions">
+    <a class="button" href={routes.booking}>Aufenthalt buchen</a>
+    <a class="button secondary" href={`tel:${site.phone.replaceAll(" ", "")}`}>{site.phone}</a>
+  </div>
+</section>
+
+<style>
+  .booking-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: -2rem;
+    padding: 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(24, 16, 11, 0.88);
+    box-shadow: var(--shadow);
+  }
+
+  p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .strip-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 760px) {
+    .booking-strip {
+      align-items: stretch;
+      flex-direction: column;
+      border-radius: var(--radius-lg);
+    }
+  }
+</style>

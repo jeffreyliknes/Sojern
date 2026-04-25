@@ -1,0 +1,175 @@
+---
+import BookingStrip from "@/components/sections/BookingStrip.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { restaurantCopy } from "@/data/site";
+
+const weinstube = restaurantCopy.weinstube;
+---
+
+<BaseLayout title={weinstube.title} description={weinstube.body[0]}>
+  <section class="restaurant-hero container">
+    <div class="restaurant-copy">
+      <p class="eyebrow">{weinstube.eyebrow}</p>
+      <h1 class="display">{weinstube.title}</h1>
+      {weinstube.body.map((paragraph) => <p class="lede">{paragraph}</p>)}
+    </div>
+    <div class="restaurant-image panel">
+      <img src="/images/restaurants/weinstube-1.jpg" alt="" />
+    </div>
+  </section>
+
+  <BookingStrip />
+
+  <section class="container info-grid">
+    <article class="panel info-card">
+      <p class="eyebrow">Öffnungszeiten</p>
+      <h2>Montag bis Samstag ab 17:30 Uhr</h2>
+      <p>{weinstube.hours}</p>
+      <a class="button" href="/anfahrt-kontakt">Tisch reservieren</a>
+    </article>
+    <article class="panel image-card">
+      <img src="/images/restaurants/weinstube-2.jpg" alt="" loading="lazy" />
+    </article>
+  </section>
+
+  <section class="container team-section">
+    <div class="section-heading">
+      <p class="eyebrow">Das Küchenteam</p>
+      <h2 class="section-title">Sebastian Lorenz und sein Küchenteam</h2>
+    </div>
+    <div class="team-grid">
+      <img src="/images/restaurants/lorenz.jpg" alt="" loading="lazy" />
+      <div class="panel team-copy">
+        <p>{weinstube.kitchen}</p>
+        <hr />
+        <p class="eyebrow">Das Serviceteam</p>
+        <p>{weinstube.service}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container menu-panel panel">
+    <p class="eyebrow">Speisekarte</p>
+    <h2>Für den kleinen und großen Hunger bieten wir eine vielfältige Speisekarte.</h2>
+    <p>
+      Unsere engagierte Küche verwöhnt Sie mit saisonalen Gerichten und speziellen Optionen für Kinder.
+      Entdecken Sie außerdem das exklusive Weinstubenmenü mit sorgfältig ausgewählter Weinempfehlung.
+    </p>
+    <a class="link-arrow" href="/downloads">Aktuelle Speisekarte als PDF</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .restaurant-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+    padding: 5rem 0 4rem;
+  }
+
+  .restaurant-copy {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .restaurant-copy .lede {
+    font-size: 1.12rem;
+  }
+
+  .restaurant-image {
+    overflow: hidden;
+  }
+
+  .restaurant-image img {
+    width: 100%;
+    min-height: 660px;
+    object-fit: cover;
+  }
+
+  .info-grid,
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.78fr;
+    gap: 1rem;
+    margin-top: 5rem;
+  }
+
+  .info-card,
+  .team-copy,
+  .menu-panel {
+    padding: 1.5rem;
+  }
+
+  .info-card {
+    display: grid;
+    align-content: center;
+    gap: 1rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.3rem, 5vw, 4.3rem);
+    font-weight: 400;
+    line-height: 0.98;
+  }
+
+  p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .image-card {
+    overflow: hidden;
+  }
+
+  .image-card img,
+  .team-grid img {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+  }
+
+  .team-section,
+  .menu-panel {
+    margin-top: 6rem;
+  }
+
+  .section-heading {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .team-copy {
+    display: grid;
+    align-content: center;
+    gap: 1.2rem;
+  }
+
+  hr {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .menu-panel {
+    display: grid;
+    gap: 1rem;
+    max-width: 900px;
+  }
+
+  @media (max-width: 900px) {
+    .restaurant-hero,
+    .info-grid,
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .restaurant-image img {
+      min-height: 420px;
+    }
+  }
+</style>
