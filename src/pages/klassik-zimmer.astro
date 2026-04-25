@@ -9,38 +9,49 @@ const amenities = klassik?.amenities ?? [];
 ---
 
 <BaseLayout title="Klassik Zimmer" description={klassik?.description_de}>
-  <section class="room-hero container">
-    <div class="room-copy">
+
+  <!-- HERO: Full-bleed cinematic -->
+  <section class="room-hero">
+    <img class="hero-img" src="/images/rooms/klassik-1.jpg" alt="" />
+    <div class="hero-veil"></div>
+    <div class="container hero-content">
       <p class="eyebrow">Klassik Zimmer</p>
-      <h1 class="display">Klassik Zimmer</h1>
-      <p class="lede">{klassik?.description_de}</p>
-      <div class="room-facts">
-        {klassikRooms.map((room) => (
-          <article>
-            <span>{room.type}</span>
-            <strong>{room.size_sqm} qm</strong>
-          </article>
-        ))}
-      </div>
-    </div>
-    <div class="room-gallery">
-      <img class="main-image" src="/images/rooms/klassik-1.jpg" alt="" />
-      <img src="/images/rooms/klassik-2.jpg" alt="" />
+      <h1 class="display hero-heading">Klassik</h1>
+      <p class="hero-lede">Warme Gemütlichkeit.<br />Stille. Raum zum Durchatmen.</p>
     </div>
   </section>
 
   <BookingStrip />
 
+  <!-- GALLERY + DESCRIPTION -->
+  <section class="container room-body">
+    <div class="room-gallery">
+      <img src="/images/rooms/klassik-2.jpg" alt="Klassik Zimmer" />
+      <div class="gallery-aside">
+        <p class="lede">{klassik?.description_de}</p>
+        <div class="room-facts">
+          {klassikRooms.map((room) => (
+            <article>
+              <span class="eyebrow fact-label">{room.type}</span>
+              <strong>{room.size_sqm} qm</strong>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMENITIES + PRACTICAL -->
   <section class="container details-grid">
     <article class="panel details-panel">
-      <p class="eyebrow">Zimmerdetails</p>
-      <h2>Ausstattung</h2>
+      <p class="eyebrow">Zimmerausstattung</p>
+      <h2>Was erwartet Sie</h2>
       <ul class="amenities">
         {amenities.map((item) => <li>{item}</li>)}
       </ul>
     </article>
     <aside class="panel practical-panel">
-      <p class="eyebrow">Zusätzliche Informationen</p>
+      <p class="eyebrow">Gut zu wissen</p>
       <ul>
         <li>Frühstücksbuffet inklusive</li>
         <li>Haustiere: 20 €/Tag</li>
@@ -48,90 +59,133 @@ const amenities = klassik?.amenities ?? [];
         <li>Parken: 10 €/Nacht</li>
         <li>Sauna: 15 €/Person</li>
       </ul>
-      <a class="button" href="/buchen">Buchen</a>
+      <a class="button" href="/buchen">Aufenthalt buchen</a>
       {klassik?.tour_360_url && <a class="button secondary" href={klassik.tour_360_url}>360° Rundgang</a>}
     </aside>
   </section>
+
 </BaseLayout>
 
 <style>
+  /* ─── HERO ───────────────────────────────────────────── */
   .room-hero {
+    position: relative;
+    min-height: 72vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 7rem;
+    overflow: hidden;
+  }
+
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  .hero-veil {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(20, 13, 8, 0.95) 0%, rgba(20, 13, 8, 0.45) 45%, rgba(20, 13, 8, 0.1) 75%, transparent 100%),
+      linear-gradient(to right, rgba(20, 13, 8, 0.5) 0%, transparent 60%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
     display: grid;
-    grid-template-columns: minmax(0, 0.78fr) minmax(360px, 1.22fr);
-    gap: clamp(2rem, 6vw, 5rem);
-    align-items: end;
-    padding: 5rem 0 4rem;
+    gap: 1.25rem;
+    max-width: 700px;
   }
 
-  .room-copy {
-    display: grid;
-    gap: 1rem;
+  .hero-heading {
+    font-size: clamp(5rem, 12vw, 11rem);
+    color: var(--ink);
   }
 
-  .room-facts {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.8rem;
-    margin-top: 1rem;
-  }
-
-  .room-facts article {
-    padding: 1rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: rgba(42, 27, 19, 0.65);
-  }
-
-  .room-facts span,
-  .room-facts strong {
-    display: block;
-  }
-
-  .room-facts span {
+  .hero-lede {
     color: var(--muted);
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    margin: 0;
+    line-height: 1.6;
   }
 
-  .room-facts strong {
-    color: var(--gold-bright);
-    font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 400;
+  /* ─── GALLERY ─────────────────────────────────────────── */
+  .room-body {
+    margin-top: 5rem;
   }
 
   .room-gallery {
     display: grid;
-    grid-template-columns: 1fr 0.62fr;
-    gap: 1rem;
+    grid-template-columns: 1fr 0.55fr;
+    gap: 2.5rem;
+    align-items: start;
   }
 
-  .room-gallery img {
+  .room-gallery > img {
     width: 100%;
-    height: 100%;
-    min-height: 360px;
-    border-radius: var(--radius-lg);
+    aspect-ratio: 4 / 5;
     object-fit: cover;
+    border-radius: var(--radius-lg);
   }
 
-  .room-gallery .main-image {
-    min-height: 620px;
+  .gallery-aside {
+    display: grid;
+    gap: 2rem;
+    padding-top: 1.5rem;
   }
 
+  .room-facts {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .room-facts article {
+    padding: 1rem 1.2rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: rgba(38, 26, 18, 0.7);
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .fact-label {
+    font-size: 0.65rem;
+  }
+
+  .room-facts strong {
+    display: block;
+    color: var(--gold-bright);
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  /* ─── DETAILS ─────────────────────────────────────────── */
   .details-grid {
     display: grid;
-    grid-template-columns: 1fr 360px;
-    gap: 1rem;
+    grid-template-columns: 1fr 320px;
+    gap: 1.5rem;
     margin-top: 5rem;
+    padding-bottom: 4rem;
   }
 
   .details-panel,
   .practical-panel {
-    padding: 1.5rem;
+    padding: 2rem;
   }
 
   h2 {
-    margin: 0.25rem 0 1.2rem;
+    margin: 0.3rem 0 1.5rem;
     font-family: var(--font-display);
-    font-size: clamp(2.3rem, 5vw, 4rem);
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
     font-weight: 400;
     line-height: 1;
   }
@@ -140,33 +194,42 @@ const amenities = klassik?.amenities ?? [];
     margin: 0;
     padding-left: 1.1rem;
     color: var(--muted);
+    line-height: 1.9;
   }
 
   .amenities {
     columns: 2;
-    column-gap: 2rem;
+    column-gap: 2.5rem;
   }
 
   .practical-panel {
     display: grid;
     align-content: start;
-    gap: 1rem;
+    gap: 1.25rem;
+  }
+
+  .practical-panel .button {
+    width: fit-content;
   }
 
   @media (max-width: 900px) {
-    .room-hero,
-    .details-grid,
-    .room-gallery {
+    .room-gallery,
+    .details-grid {
       grid-template-columns: 1fr;
     }
 
-    .room-gallery .main-image,
-    .room-gallery img {
-      min-height: 340px;
+    .room-gallery > img {
+      aspect-ratio: 3 / 2;
     }
 
     .amenities {
       columns: 1;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .room-hero {
+      padding-bottom: 5rem;
     }
   }
 </style>

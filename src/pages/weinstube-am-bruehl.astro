@@ -7,169 +7,295 @@ const weinstube = restaurantCopy.weinstube;
 ---
 
 <BaseLayout title={weinstube.title} description={weinstube.body[0]}>
-  <section class="restaurant-hero container">
-    <div class="restaurant-copy">
+
+  <!-- HERO: Full-bleed cinematic -->
+  <section class="restaurant-hero">
+    <img class="hero-img" src="/images/restaurants/weinstube-1.jpg" alt="" />
+    <div class="hero-veil"></div>
+    <div class="container hero-content">
       <p class="eyebrow">{weinstube.eyebrow}</p>
-      <h1 class="display">{weinstube.title}</h1>
-      {weinstube.body.map((paragraph) => <p class="lede">{paragraph}</p>)}
-    </div>
-    <div class="restaurant-image panel">
-      <img src="/images/restaurants/weinstube-1.jpg" alt="" />
+      <h1 class="display hero-heading">Weinstube<br />am Brühl</h1>
+      <p class="hero-lede">Frische Küche. Erlesene Weine.<br />Unvergessliche Abende.</p>
     </div>
   </section>
 
   <BookingStrip />
 
-  <section class="container info-grid">
-    <article class="panel info-card">
-      <p class="eyebrow">Öffnungszeiten</p>
-      <h2>Montag bis Samstag ab 17:30 Uhr</h2>
-      <p>{weinstube.hours}</p>
-      <a class="button" href="/anfahrt-kontakt">Tisch reservieren</a>
-    </article>
-    <article class="panel image-card">
+  <!-- INTRO + SECOND IMAGE -->
+  <section class="container intro-grid">
+    <div class="intro-copy">
+      {weinstube.body.slice(0, 2).map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+    <div class="intro-image">
       <img src="/images/restaurants/weinstube-2.jpg" alt="" loading="lazy" />
-    </article>
+    </div>
   </section>
 
-  <section class="container team-section">
-    <div class="section-heading">
-      <p class="eyebrow">Das Küchenteam</p>
-      <h2 class="section-title">Sebastian Lorenz und sein Küchenteam</h2>
+  <!-- HOURS: Editorial band -->
+  <section class="hours-band">
+    <div class="container hours-inner">
+      <div>
+        <p class="eyebrow">Öffnungszeiten</p>
+        <p class="hours-main">Mo – Sa ab 17:30 Uhr</p>
+        <p class="hours-note">{weinstube.hours}</p>
+      </div>
+      <a class="button" href="/anfahrt-kontakt">Tisch reservieren</a>
     </div>
+  </section>
+
+  <!-- TEAM: Split editorial -->
+  <section class="container team-section">
     <div class="team-grid">
-      <img src="/images/restaurants/lorenz.jpg" alt="" loading="lazy" />
-      <div class="panel team-copy">
+      <img src="/images/restaurants/lorenz.jpg" alt="Sebastian Lorenz" loading="lazy" />
+      <div class="team-copy">
+        <p class="eyebrow">Das Küchenteam</p>
+        <h2>Sebastian<br />Lorenz</h2>
         <p>{weinstube.kitchen}</p>
         <hr />
-        <p class="eyebrow">Das Serviceteam</p>
+        <p class="eyebrow">Serviceleitung</p>
         <p>{weinstube.service}</p>
       </div>
     </div>
   </section>
 
-  <section class="container menu-panel panel">
-    <p class="eyebrow">Speisekarte</p>
-    <h2>Für den kleinen und großen Hunger bieten wir eine vielfältige Speisekarte.</h2>
-    <p>
-      Unsere engagierte Küche verwöhnt Sie mit saisonalen Gerichten und speziellen Optionen für Kinder.
-      Entdecken Sie außerdem das exklusive Weinstubenmenü mit sorgfältig ausgewählter Weinempfehlung.
-    </p>
-    <a class="link-arrow" href="/downloads">Aktuelle Speisekarte als PDF</a>
+  <!-- MENU CTA -->
+  <section class="container menu-cta">
+    <div class="panel menu-panel">
+      <div class="menu-text">
+        <p class="eyebrow">Speisekarte</p>
+        <h2>Für jeden Hunger.<br />Für jeden Anlass.</h2>
+        <p>Saisonale Gerichte, Kinderkarte und das exklusive Weinstubenmenü mit korrespondierender Weinempfehlung.</p>
+      </div>
+      <a class="link-arrow" href="/downloads">Aktuelle Speisekarte herunterladen</a>
+    </div>
   </section>
+
 </BaseLayout>
 
 <style>
+  /* ─── HERO ───────────────────────────────────────────── */
   .restaurant-hero {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr);
-    gap: clamp(2rem, 6vw, 5rem);
-    align-items: center;
-    padding: 5rem 0 4rem;
-  }
-
-  .restaurant-copy {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .restaurant-copy .lede {
-    font-size: 1.12rem;
-  }
-
-  .restaurant-image {
+    position: relative;
+    min-height: 75vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 7rem;
     overflow: hidden;
   }
 
-  .restaurant-image img {
-    width: 100%;
-    min-height: 660px;
-    object-fit: cover;
-  }
-
-  .info-grid,
-  .team-grid {
-    display: grid;
-    grid-template-columns: 1fr 0.78fr;
-    gap: 1rem;
-    margin-top: 5rem;
-  }
-
-  .info-card,
-  .team-copy,
-  .menu-panel {
-    padding: 1.5rem;
-  }
-
-  .info-card {
-    display: grid;
-    align-content: center;
-    gap: 1rem;
-  }
-
-  h2 {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: clamp(2.3rem, 5vw, 4.3rem);
-    font-weight: 400;
-    line-height: 0.98;
-  }
-
-  p {
-    margin: 0;
-    color: var(--muted);
-  }
-
-  .image-card {
-    overflow: hidden;
-  }
-
-  .image-card img,
-  .team-grid img {
+  .hero-img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    min-height: 420px;
     object-fit: cover;
+    object-position: center 30%;
   }
 
-  .team-section,
-  .menu-panel {
+  .hero-veil {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(20, 13, 8, 0.96) 0%, rgba(20, 13, 8, 0.5) 40%, rgba(20, 13, 8, 0.1) 72%, transparent 100%),
+      linear-gradient(to right, rgba(20, 13, 8, 0.55) 0%, transparent 55%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 1.25rem;
+    max-width: 700px;
+  }
+
+  .hero-heading {
+    font-size: clamp(4rem, 10vw, 9.5rem);
+    color: var(--ink);
+  }
+
+  .hero-lede {
+    color: var(--muted);
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ─── INTRO ───────────────────────────────────────────── */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
     margin-top: 6rem;
   }
 
-  .section-heading {
+  .intro-copy {
     display: grid;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 1.25rem;
+    padding-top: 0.5rem;
+  }
+
+  .intro-copy p {
+    color: var(--muted);
+    line-height: 1.75;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  .intro-image {
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+  }
+
+  .intro-image img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  /* ─── HOURS ───────────────────────────────────────────── */
+  .hours-band {
+    margin-top: 7rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 3rem 0;
+    background: rgba(38, 26, 18, 0.5);
+  }
+
+  .hours-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .hours-main {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--ink);
+    margin: 0.4rem 0 0.5rem;
+  }
+
+  .hours-note {
+    margin: 0;
+    color: var(--soft);
+    font-size: 0.9rem;
+    max-width: 560px;
+    line-height: 1.6;
+  }
+
+  /* ─── TEAM ────────────────────────────────────────────── */
+  .team-section {
+    margin-top: 8rem;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .team-grid > img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: var(--radius-lg);
   }
 
   .team-copy {
     display: grid;
-    align-content: center;
     gap: 1.2rem;
+    align-content: start;
+    padding-top: 1rem;
+  }
+
+  h2 {
+    margin: 0.3rem 0 0.25rem;
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+  }
+
+  .team-copy p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.75;
+    font-size: 0.97rem;
   }
 
   hr {
     width: 100%;
     border: 0;
     border-top: 1px solid var(--line);
+    margin: 0.25rem 0;
+  }
+
+  /* ─── MENU CTA ────────────────────────────────────────── */
+  .menu-cta {
+    margin-top: 7rem;
+    padding-bottom: 4rem;
   }
 
   .menu-panel {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: clamp(2rem, 4vw, 3.5rem);
+    flex-wrap: wrap;
+  }
+
+  .menu-text {
     display: grid;
-    gap: 1rem;
-    max-width: 900px;
+    gap: 0.75rem;
+  }
+
+  .menu-text h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: -0.02em;
+  }
+
+  .menu-text p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.97rem;
+    max-width: 440px;
+    line-height: 1.65;
   }
 
   @media (max-width: 900px) {
-    .restaurant-hero,
-    .info-grid,
+    .intro-grid,
     .team-grid {
       grid-template-columns: 1fr;
     }
 
-    .restaurant-image img {
-      min-height: 420px;
+    .intro-image img {
+      aspect-ratio: 3 / 2;
+    }
+
+    .hours-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .menu-panel {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .restaurant-hero {
+      padding-bottom: 5rem;
     }
   }
 </style>

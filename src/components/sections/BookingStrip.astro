@@ -3,9 +3,9 @@ import { routes, site } from "@/data/site";
 ---
 
 <section class="booking-strip container" aria-label="Buchung und Kontakt">
-  <div>
-    <p class="eyebrow">Anfahrt & Kontakt</p>
-    <p>Romantik Hotel am Brühl · Billungstraße 11 · 06484 Quedlinburg</p>
+  <div class="strip-info">
+    <p class="strip-label eyebrow">Anfahrt & Kontakt</p>
+    <p class="strip-address">{site.address[0]} · {site.address[1]}</p>
   </div>
   <div class="strip-actions">
     <a class="button" href={routes.booking}>Aufenthalt buchen</a>
@@ -19,23 +19,31 @@ import { routes, site } from "@/data/site";
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
-    margin-top: -2rem;
-    padding: 1.1rem;
+    margin-top: 3rem;
+    padding: 1.25rem 1.5rem;
     border: 1px solid var(--line);
     border-radius: 999px;
-    background: rgba(24, 16, 11, 0.88);
-    box-shadow: var(--shadow);
+    background: rgba(26, 17, 10, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
   }
 
-  p {
+  .strip-label {
+    margin: 0 0 0.2rem;
+  }
+
+  .strip-address {
     margin: 0;
-    color: var(--muted);
+    color: var(--soft);
+    font-size: 0.9rem;
   }
 
   .strip-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+    flex-shrink: 0;
   }
 
   @media (max-width: 760px) {

@@ -2,61 +2,109 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const downloads = [
-  "Speisekarte Weinstube",
-  "Weinstubenmenü",
-  "Getränkekarte",
-  "Kinderkarte",
-  "Grillbuffet Sommer 2025",
-  "Fingerfood",
-  "Tagungsmappe",
-  "Veranstaltungsmappe2025",
-  "AGB Hotel",
-  "AGB Veranstaltungen",
-  "Datenschutz",
-  "Barrierefreiheitserklärung",
+  { label: "Speisekarte Weinstube", category: "Kulinarik" },
+  { label: "Weinstubenmenü", category: "Kulinarik" },
+  { label: "Getränkekarte", category: "Kulinarik" },
+  { label: "Kinderkarte", category: "Kulinarik" },
+  { label: "Grillbuffet Sommer 2025", category: "Kulinarik" },
+  { label: "Fingerfood", category: "Kulinarik" },
+  { label: "Tagungsmappe", category: "Veranstaltungen" },
+  { label: "Veranstaltungsmappe 2025", category: "Veranstaltungen" },
+  { label: "AGB Hotel", category: "Rechtliches" },
+  { label: "AGB Veranstaltungen", category: "Rechtliches" },
+  { label: "Datenschutz", category: "Rechtliches" },
+  { label: "Barrierefreiheitserklärung", category: "Rechtliches" },
 ];
+
+const categories = [...new Set(downloads.map((d) => d.category))];
 ---
 
 <BaseLayout title="Downloads" description="Downloads und Speisekarten des Romantik Hotel am Brühl.">
+
   <section class="downloads-hero container">
     <p class="eyebrow">Downloads</p>
     <h1 class="display">Downloads</h1>
-    <div class="panel downloads-panel">
-      {downloads.map((item) => (
-        <a href="/downloads">{item}</a>
-      ))}
-    </div>
+    <p class="lede">Speisekarten, Tagungsunterlagen und rechtliche Dokumente zum Download.</p>
   </section>
+
+  <section class="container downloads-body">
+    {categories.map((cat) => (
+      <div class="downloads-group">
+        <p class="eyebrow group-label">{cat}</p>
+        <div class="downloads-list">
+          {downloads.filter((d) => d.category === cat).map((item) => (
+            <a href="/downloads" class="download-item">
+              <span class="item-icon" aria-hidden="true">↓</span>
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+
 </BaseLayout>
 
 <style>
   .downloads-hero {
     display: grid;
-    gap: 1.5rem;
-    padding: 5rem 0;
+    gap: 1.25rem;
+    max-width: 680px;
+    padding: 5rem 0 4rem;
+    border-bottom: 1px solid var(--line);
   }
 
-  .downloads-panel {
+  .downloads-body {
+    display: grid;
+    gap: 3.5rem;
+    padding: 4rem 0 5rem;
+  }
+
+  .group-label {
+    margin-bottom: 1rem;
+  }
+
+  .downloads-list {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.75rem;
-    padding: 1.2rem;
+    gap: 0.65rem;
   }
 
-  .downloads-panel a {
+  .download-item {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.9rem 1rem;
     border: 1px solid var(--line);
-    border-radius: var(--radius-sm);
-    padding: 0.8rem;
+    border-radius: var(--radius-md);
     color: var(--muted);
+    font-size: 0.92rem;
+    transition:
+      color 140ms ease,
+      border-color 140ms ease,
+      background 140ms ease;
   }
 
-  .downloads-panel a:hover {
+  .download-item:hover {
     color: var(--gold-bright);
-    border-color: rgba(225, 193, 111, 0.55);
+    border-color: rgba(210, 170, 80, 0.4);
+    background: rgba(199, 164, 90, 0.06);
+  }
+
+  .item-icon {
+    font-size: 0.8rem;
+    color: var(--gold);
+    flex-shrink: 0;
   }
 
   @media (max-width: 760px) {
-    .downloads-panel {
+    .downloads-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 480px) {
+    .downloads-list {
       grid-template-columns: 1fr;
     }
   }

@@ -1,118 +1,98 @@
 ---
-import FeatureCard from "@/components/cards/FeatureCard.astro";
-import OfferCard from "@/components/cards/OfferCard.astro";
 import BookingStrip from "@/components/sections/BookingStrip.astro";
+import OfferCard from "@/components/cards/OfferCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { eventsCopy, homeCopy, restaurantCopy, routes } from "@/data/site";
+import { routes } from "@/data/site";
 import packages from "@/data/packages.json";
-import rooms from "@/data/rooms.json";
-
-const featuredRooms = [
-  {
-    title: "Klassik",
-    href: "/klassik-zimmer",
-    image: "/images/rooms/klassik-1.jpg",
-    text: rooms.find((room) => room.id === "klassik-double")?.description_de ?? "",
-  },
-  {
-    title: "Suite",
-    href: "/suite",
-    image: "/images/rooms/suite-1.jpg",
-    text: rooms.find((room) => room.id === "suite")?.description_de ?? "",
-  },
-];
 
 const featuredOffers = packages.slice(0, 3);
 ---
 
-<BaseLayout title="Romantik Hotel am Brühl" description={homeCopy.welcome}>
+<BaseLayout title="Romantik Hotel am Brühl" description="Hotel mit Handschrift in Quedlinburg.">
+
+  <!-- HERO: Full-bleed cinematic -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">{homeCopy.heroSubheading}</p>
-        <h1 class="display">{homeCopy.heroHeading}</h1>
-        <p class="lede">{homeCopy.welcome}</p>
-        <div class="hero-actions">
-          <a class="button" href={routes.booking}>Aufenthalt buchen</a>
-          <a class="button secondary" href="/klassik-zimmer">Zimmer entdecken</a>
-        </div>
-      </div>
-      <div class="hero-image panel reveal">
-        <img src="/images/home/entree.jpg" alt="" />
-        <div class="hero-note">
-          <span>Quedlinburg</span>
-          <strong>Billungstraße 11</strong>
-        </div>
+    <img class="hero-img" src="/images/home/entree.jpg" alt="" />
+    <div class="hero-veil"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">Hotel mit Handschrift</p>
+      <h1 class="display hero-heading">Romantik Hotel<br />am Brühl</h1>
+      <p class="hero-lede">Quedlinburg · Stille · Gastfreundschaft</p>
+      <div class="hero-actions">
+        <a class="button" href={routes.booking}>Aufenthalt buchen</a>
+        <a class="button secondary" href="/klassik-zimmer">Zimmer entdecken</a>
       </div>
     </div>
   </section>
 
   <BookingStrip />
 
-  <section class="container intro-section">
-    <p class="eyebrow">Herzlich Willkommen</p>
-    <h2 class="section-title">Romantik Hotel am Brühl</h2>
-    <div class="intro-panel panel">
-      <img src="/images/home/garden.jpg" alt="" loading="lazy" />
-      <p>{homeCopy.welcome}</p>
+  <!-- ROOMS: Editorial full-bleed image grid -->
+  <section class="rooms-section">
+    <div class="container rooms-header">
+      <p class="eyebrow">Unsere Zimmer</p>
+      <h2 class="section-title">Räume zum<br />Wohlfühlen</h2>
+    </div>
+    <div class="rooms-grid">
+      <a href="/klassik-zimmer" class="room-card">
+        <img src="/images/rooms/klassik-1.jpg" alt="Klassik Zimmer" />
+        <div class="room-card-text">
+          <span class="eyebrow">Klassik Zimmer</span>
+          <h3>Klassik</h3>
+          <span class="link-arrow">Entdecken</span>
+        </div>
+      </a>
+      <a href="/suite" class="room-card">
+        <img src="/images/rooms/suite-1.jpg" alt="Suite" />
+        <div class="room-card-text">
+          <span class="eyebrow">Suite</span>
+          <h3>Suite</h3>
+          <span class="link-arrow">Entdecken</span>
+        </div>
+      </a>
+    </div>
+    <div class="container rooms-cta">
+      <a class="link-arrow" href="/comfort-zimmer">Alle Zimmer ansehen</a>
     </div>
   </section>
 
-  <section class="container content-section">
-    <div class="section-heading">
-      <p class="eyebrow">Zimmer</p>
-      <h2 class="section-title">{homeCopy.roomHeading}</h2>
-    </div>
-    <div class="card-grid two">
-      {featuredRooms.map((room) => (
-        <FeatureCard {...room} kicker="Zimmer" />
-      ))}
-    </div>
-  </section>
-
-  <section class="container split-feature">
-    <div>
+  <!-- RESTAURANT: Split cinematic -->
+  <section class="restaurant-section">
+    <div class="restaurant-text">
       <p class="eyebrow">Unsere Restaurants</p>
-      <h2 class="section-title">Unsere Restaurants</h2>
-      <p class="lede">
-        Unser engagiertes Küchenteam zaubert mit Hingabe Gerichte á la carte und saisonale Menüs.
-      </p>
-      <a class="button secondary" href="/weinstube-am-bruehl">Weinstube ansehen</a>
+      <h2>Essen.<br />Genießen.<br />Verführen.</h2>
+      <p>Frische Küche. Erlesene Weine.<br />Unvergessliche Abende.</p>
+      <div class="restaurant-links">
+        <a class="link-arrow" href="/weinstube-am-bruehl">Weinstube am Brühl</a>
+        <a class="link-arrow" href="/restaurant-le-mariage">Restaurant Le Mariage</a>
+      </div>
     </div>
-    <div class="restaurant-stack">
-      <FeatureCard
-        title="Weinstube am Brühl"
-        kicker="Kulinarische Verführung"
-        text="Unser engagiertes Küchenteam zaubert mit Hingabe Gerichte á la carte und saisonale Menüs."
-        href="/weinstube-am-bruehl"
-        image="/images/restaurants/weinstube-1.jpg"
-      />
-      <FeatureCard
-        title="Restaurant Le Mariage"
-        kicker="Wenn es etwas mehr sein darf"
-        text={restaurantCopy.leMariageTeaser}
-        href="/restaurant-le-mariage"
-        image="/images/home/breakfast.jpg"
-      />
+    <div class="restaurant-image">
+      <img src="/images/restaurants/weinstube-1.jpg" alt="Weinstube am Brühl" />
     </div>
   </section>
 
-  <section class="container events-panel panel">
-    <div>
-      <p class="eyebrow">Tagen & Feiern</p>
-      <h2>Ihre Events</h2>
+  <!-- EVENTS: Image panel -->
+  <section class="container events-section">
+    <div class="events-inner panel">
+      <div class="events-text">
+        <p class="eyebrow">Tagen & Feiern</p>
+        <h2>Große<br />Momente</h2>
+        <p>Tagungen. Hochzeiten.<br />Feiern mit Handschrift.</p>
+        <a class="link-arrow" href="/eventlocation-le-mariage">Le Mariage entdecken</a>
+      </div>
+      <img src="/images/home/breakfast.jpg" alt="" class="events-image" />
     </div>
-    <p>{eventsCopy.teaser}</p>
-    <a class="link-arrow" href="/eventlocation-le-mariage">Le Mariage entdecken</a>
   </section>
 
-  <section class="container content-section">
-    <div class="section-heading">
+  <!-- OFFERS: Refined grid -->
+  <section class="container offers-section">
+    <div class="offers-header">
       <p class="eyebrow">Angebote</p>
-      <h2 class="section-title">{homeCopy.offersHeading}</h2>
-      <p class="lede">{homeCopy.offersText}</p>
+      <h2 class="section-title">Besondere<br />Auszeiten</h2>
+      <p class="lede">Curated packages für unvergessliche Erlebnisse ab zwei Nächten.</p>
     </div>
-    <div class="card-grid three">
+    <div class="offers-grid">
       {featuredOffers.map((offer) => (
         <OfferCard
           name={offer.name}
@@ -123,162 +103,308 @@ const featuredOffers = packages.slice(0, 3);
         />
       ))}
     </div>
+    <div class="offers-cta">
+      <a class="link-arrow" href="/angebote">Alle Angebote ansehen</a>
+    </div>
   </section>
+
 </BaseLayout>
 
 <style>
+  /* ─── HERO ───────────────────────────────────────────── */
   .hero {
-    min-height: calc(100vh - 86px);
-    padding: 5rem 0 7rem;
-    display: grid;
-    align-items: center;
+    position: relative;
+    min-height: calc(100svh - var(--header-h));
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 7rem;
   }
 
-  .hero-grid,
-  .split-feature {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
-    align-items: center;
-    gap: clamp(2rem, 6vw, 5rem);
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
   }
 
-  .hero-copy {
+  .hero-veil {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(20, 13, 8, 0.96) 0%, rgba(20, 13, 8, 0.55) 38%, rgba(20, 13, 8, 0.15) 65%, transparent 100%),
+      linear-gradient(to right, rgba(20, 13, 8, 0.55) 0%, transparent 55%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
     display: grid;
-    gap: 1.2rem;
+    gap: 1.5rem;
+    max-width: 700px;
+  }
+
+  .hero-heading {
+    font-size: clamp(4rem, 9vw, 9.5rem);
+    color: var(--ink);
+  }
+
+  .hero-lede {
+    color: var(--muted);
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    margin: 0;
   }
 
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.85rem;
+    margin-top: 0.25rem;
   }
 
-  .hero-image {
+  /* ─── ROOMS ──────────────────────────────────────────── */
+  .rooms-section {
+    margin-top: 8rem;
+  }
+
+  .rooms-header {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .rooms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+  }
+
+  .room-card {
     position: relative;
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+
+  .room-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 900ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .room-card:hover img {
+    transform: scale(1.04);
+  }
+
+  .room-card-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem 2.25rem 2.25rem;
+    background: linear-gradient(to top, rgba(15, 9, 5, 0.94) 0%, rgba(15, 9, 5, 0.4) 55%, transparent 100%);
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .room-card h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 4.5vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .rooms-cta {
+    margin-top: 2rem;
+    text-align: right;
+  }
+
+  /* ─── RESTAURANT ─────────────────────────────────────── */
+  .restaurant-section {
+    margin-top: 9rem;
+    display: grid;
+    grid-template-columns: minmax(360px, 0.72fr) 1fr;
     min-height: 620px;
+  }
+
+  .restaurant-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 5vw, 5.5rem);
+    background: var(--umber-2);
+  }
+
+  .restaurant-text h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+
+  .restaurant-text > p {
+    color: var(--muted);
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .restaurant-links {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .restaurant-image {
     overflow: hidden;
   }
 
-  .hero-image img {
+  .restaurant-image img {
     width: 100%;
     height: 100%;
-    min-height: 620px;
     object-fit: cover;
+    transition: transform 900ms ease;
   }
 
-  .hero-note {
-    position: absolute;
-    right: 1rem;
-    bottom: 1rem;
+  .restaurant-section:hover .restaurant-image img {
+    transform: scale(1.02);
+  }
+
+  /* ─── EVENTS ─────────────────────────────────────────── */
+  .events-section {
+    margin-top: 8rem;
+  }
+
+  .events-inner {
     display: grid;
-    gap: 0.1rem;
-    padding: 1rem 1.15rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: rgba(15, 16, 13, 0.8);
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    min-height: 440px;
   }
 
-  .hero-note span {
-    color: var(--gold-bright);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-
-  .intro-section,
-  .content-section,
-  .split-feature,
-  .events-panel {
-    margin-top: 7rem;
-  }
-
-  .intro-panel {
+  .events-text {
     display: grid;
-    grid-template-columns: 0.9fr 1fr;
-    gap: 2rem;
-    align-items: center;
-    margin-top: 2rem;
-    padding: 1rem 2rem 1rem 1rem;
+    align-content: center;
+    gap: 1.25rem;
+    padding: clamp(2.5rem, 5vw, 4rem);
   }
 
-  .intro-panel img {
-    height: 420px;
-    width: 100%;
-    border-radius: 22px;
-    object-fit: cover;
-  }
-
-  .intro-panel p {
-    color: var(--muted);
-    font-size: 1.2rem;
-  }
-
-  .section-heading {
-    display: grid;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .card-grid {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .card-grid.two {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .card-grid.three {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .restaurant-stack {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .events-panel {
-    display: grid;
-    grid-template-columns: 0.6fr 1fr auto;
-    gap: 2rem;
-    align-items: center;
-    padding: 2rem;
-  }
-
-  .events-panel h2 {
+  .events-text h2 {
     margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(2.3rem, 5vw, 4rem);
+    font-size: clamp(3rem, 5vw, 5rem);
     font-weight: 400;
-    line-height: 1;
+    line-height: 0.9;
+    letter-spacing: -0.025em;
+    color: var(--ink);
   }
 
-  .events-panel p {
+  .events-text > p {
     margin: 0;
     color: var(--muted);
+    line-height: 1.6;
   }
 
+  .events-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ─── OFFERS ─────────────────────────────────────────── */
+  .offers-section {
+    margin-top: 8rem;
+    padding-bottom: 2rem;
+  }
+
+  .offers-header {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    max-width: 480px;
+  }
+
+  .offers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .offers-grid :global(.offer-card) {
+    border: 0;
+    border-radius: 0;
+    border-right: 1px solid var(--line);
+  }
+
+  .offers-grid :global(.offer-card:last-child) {
+    border-right: 0;
+  }
+
+  .offers-cta {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* ─── RESPONSIVE ─────────────────────────────────────── */
   @media (max-width: 900px) {
-    .hero-grid,
-    .split-feature,
-    .intro-panel,
-    .events-panel {
+    .rooms-grid {
+      grid-template-columns: 1fr;
+      gap: 3px;
+    }
+
+    .room-card {
+      aspect-ratio: 4 / 3;
+    }
+
+    .restaurant-section {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .restaurant-image {
+      min-height: 380px;
+    }
+
+    .events-inner {
       grid-template-columns: 1fr;
     }
 
-    .hero-image,
-    .hero-image img {
-      min-height: 420px;
+    .events-image {
+      min-height: 280px;
+      order: -1;
     }
 
-    .card-grid.two,
-    .card-grid.three {
+    .offers-grid {
       grid-template-columns: 1fr;
     }
 
-    .intro-panel {
-      padding: 1rem;
+    .offers-grid :global(.offer-card) {
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .offers-grid :global(.offer-card:last-child) {
+      border-bottom: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding-bottom: 5rem;
     }
   }
 </style>

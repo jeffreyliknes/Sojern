@@ -2,17 +2,21 @@
 import OfferCard from "@/components/cards/OfferCard.astro";
 import BookingStrip from "@/components/sections/BookingStrip.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { homeCopy } from "@/data/site";
 import packages from "@/data/packages.json";
 ---
 
-<BaseLayout title="Angebote" description={homeCopy.offersText}>
-  <section class="offers-hero container">
-    <p class="eyebrow">Angebote</p>
-    <h1 class="display">Angebote</h1>
-    <p class="lede">
-      Ob Feinschmecker, Wander-Urlaub, Kulturtrip oder Wohlfühlzeit zu zweit – unsere besonderen Angebote machen Ihren Urlaub bei uns zu einem besonderen Erlebnis. Stornieren Sie bis 3 Tage vor Anreise kostenfrei.
-    </p>
+<BaseLayout title="Angebote" description="Besondere Auszeiten im Romantik Hotel am Brühl.">
+
+  <!-- HERO: Split editorial -->
+  <section class="offers-hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Angebote</p>
+      <h1 class="display hero-heading">Besondere<br />Auszeiten</h1>
+      <p class="lede">Feinschmecker, Wanderurlaub, Kulturtrip oder Wohlfühlzeit zu zweit — curated packages ab zwei Nächten. Stornierung bis 3 Tage vor Anreise kostenfrei.</p>
+    </div>
+    <div class="hero-image">
+      <img src="/images/home/garden.jpg" alt="" />
+    </div>
   </section>
 
   <BookingStrip />
@@ -24,28 +28,70 @@ import packages from "@/data/packages.json";
         description={offer.description_de}
         includes={offer.includes}
         minNights={offer.min_nights}
-        href="/buchen"
+        href="https://www.hotelambruehl.de/de/buchen.html"
       />
     ))}
   </section>
+
 </BaseLayout>
 
 <style>
+  /* ─── HERO ───────────────────────────────────────────── */
   .offers-hero {
     display: grid;
-    gap: 1rem;
-    max-width: 980px;
-    padding: 5rem 0 4rem;
+    grid-template-columns: 1fr 0.65fr;
+    min-height: 60vh;
+    align-items: stretch;
   }
 
+  .hero-inner {
+    display: grid;
+    align-content: center;
+    gap: 1.5rem;
+    padding: 6rem 0 5rem;
+    max-width: 600px;
+  }
+
+  .hero-heading {
+    font-size: clamp(4rem, 8vw, 8rem);
+    line-height: 0.88;
+    color: var(--ink);
+  }
+
+  .hero-image {
+    overflow: hidden;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* ─── OFFERS GRID ─────────────────────────────────────── */
   .offers-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   @media (max-width: 980px) {
+    .offers-hero {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+      min-height: 320px;
+      order: -1;
+    }
+
+    .hero-inner {
+      padding-top: 4rem;
+    }
+
     .offers-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }

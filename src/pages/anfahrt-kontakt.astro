@@ -4,53 +4,153 @@ import { site } from "@/data/site";
 ---
 
 <BaseLayout title="Anfahrt & Kontakt" description="Romantik Hotel am Brühl, Billungstraße 11, 06484 Quedlinburg.">
-  <section class="contact-hero container">
-    <p class="eyebrow">Anfahrt & Kontakt</p>
-    <h1 class="display">Anfahrt & Kontakt</h1>
-    <div class="panel contact-panel">
+
+  <section class="contact-hero">
+    <div class="container hero-text">
+      <p class="eyebrow">Anfahrt & Kontakt</p>
+      <h1 class="display">Finden Sie<br />zu uns</h1>
+      <p class="lede">Mitten in der UNESCO Welterbestadt Quedlinburg.<br />Gut erreichbar mit Auto und Bahn.</p>
+    </div>
+  </section>
+
+  <section class="container contact-grid">
+    <div class="panel contact-card">
+      <p class="eyebrow">Adresse & Kontakt</p>
       <address>
-        <strong>{site.name}</strong><br />
-        {site.address[0]}<br />
-        {site.address[1]}
+        <strong>{site.name}</strong>
+        <span>{site.address[0]}</span>
+        <span>{site.address[1]}</span>
       </address>
-      <p>
-        Telefon: <a href={`tel:${site.phone.replaceAll(" ", "")}`}>{site.phone}</a><br />
-        E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a>
-      </p>
+      <div class="contact-links">
+        <a href={`tel:${site.phone.replaceAll(" ", "")}`}>
+          <span class="eyebrow link-label">Telefon</span>
+          {site.phone}
+        </a>
+        <a href={`mailto:${site.email}`}>
+          <span class="eyebrow link-label">E-Mail</span>
+          {site.email}
+        </a>
+      </div>
+      <a class="button" href={`tel:${site.phone.replaceAll(" ", "")}`}>Jetzt anrufen</a>
+    </div>
+
+    <div class="panel travel-card">
+      <p class="eyebrow">Anreise</p>
       <ul>
-        <li>Parkplatz direkt am Hotel: 10 €/Nacht</li>
-        <li>Elektroauto-Laden: Typ-2-Stecker, 22 kW</li>
+        <li>
+          <strong>Mit dem Auto</strong>
+          A14 Abfahrt Bernburg, dann B6 Richtung Quedlinburg. Parkplatz direkt am Hotel: 10 €/Nacht.
+        </li>
+        <li>
+          <strong>Mit der Bahn</strong>
+          Bahnhof Quedlinburg, 10 Minuten Fußweg zum Hotel.
+        </li>
+        <li>
+          <strong>Elektrofahrzeug</strong>
+          Typ-2-Lader (22 kW) direkt am Hotel verfügbar.
+        </li>
       </ul>
     </div>
   </section>
+
 </BaseLayout>
 
 <style>
   .contact-hero {
-    display: grid;
-    gap: 1.5rem;
-    max-width: 900px;
-    padding: 5rem 0;
+    padding: 6rem 0 5rem;
+    border-bottom: 1px solid var(--line);
   }
 
-  .contact-panel {
+  .hero-text {
     display: grid;
-    gap: 1.2rem;
-    padding: 1.5rem;
-    color: var(--muted);
+    gap: 1.5rem;
+    max-width: 700px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 4rem;
+    padding-bottom: 5rem;
+  }
+
+  .contact-card,
+  .travel-card {
+    padding: 2rem;
+    display: grid;
+    gap: 1.5rem;
+    align-content: start;
   }
 
   address {
-    color: var(--ink);
     font-style: normal;
+    display: grid;
+    gap: 0.3rem;
+    color: var(--muted);
   }
 
-  a:hover {
+  address strong {
+    color: var(--ink);
+    font-size: 1.05rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .contact-links {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .contact-links a {
+    display: grid;
+    gap: 0.2rem;
+    color: var(--muted);
+    font-size: 1.05rem;
+    transition: color 140ms ease;
+  }
+
+  .contact-links a:hover {
     color: var(--gold-bright);
   }
 
-  ul {
+  .link-label {
+    font-size: 0.65rem;
+  }
+
+  .contact-card .button {
+    width: fit-content;
+  }
+
+  .travel-card ul {
     margin: 0;
-    padding-left: 1.1rem;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0;
+    color: var(--muted);
+  }
+
+  .travel-card li {
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--line);
+    line-height: 1.65;
+  }
+
+  .travel-card li:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .travel-card strong {
+    display: block;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 760px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
