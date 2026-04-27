@@ -17,7 +17,7 @@ export const navigation = [
   {
     label: "Hotel",
     href: "/",
-    summary: "Haus, Gastgeber und die Welterbestadt Quedlinburg.",
+    summary: "Hotel, Restaurants, Events und Kontakt auf einen Blick.",
     items: [
       { label: "Unser Haus", href: "/unser-haus" },
       { label: "Gastgeber", href: "/gastgeber" },
@@ -25,6 +25,12 @@ export const navigation = [
       { label: "Natur erleben", href: "/umgebung" },
       { label: "Bewertungen", href: "/bewertungen" },
       { label: "360° Rundgang", href: "/360-rundgang" },
+      { label: "Weinstube am Brühl", href: "/weinstube-am-bruehl" },
+      { label: "Restaurant Le Mariage", href: "/restaurant-le-mariage" },
+      { label: "Tagen", href: "/tagungen" },
+      { label: "Feiern", href: "/feiern" },
+      { label: "Heiraten", href: "/eventlocation-le-mariage" },
+      { label: "Anfahrt & Kontakt", href: "/anfahrt-kontakt" },
     ],
   },
   {
@@ -47,25 +53,6 @@ export const navigation = [
       { label: "Alle Angebote", href: "/angebote" },
       { label: "Weihnachten & Silvester", href: "/weihnachten-silvester" },
       { label: "Adventszeit", href: "/advent" },
-    ],
-  },
-  {
-    label: "Unsere Restaurants",
-    href: "/weinstube-am-bruehl",
-    summary: "Weinstube am Brühl und Restaurant Le Mariage.",
-    items: [
-      { label: "Weinstube am Brühl", href: "/weinstube-am-bruehl" },
-      { label: "Restaurant Le Mariage", href: "/restaurant-le-mariage" },
-    ],
-  },
-  {
-    label: "Tagen & Feiern",
-    href: "/tagungen",
-    summary: "Tagungen, Feiern und Heiraten im Le Mariage.",
-    items: [
-      { label: "Tagen", href: "/tagungen" },
-      { label: "Feiern", href: "/feiern" },
-      { label: "Heiraten", href: "/eventlocation-le-mariage" },
     ],
   },
 ];
