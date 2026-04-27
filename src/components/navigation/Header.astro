@@ -6,7 +6,6 @@ import { navigation, routes, site } from "@/data/site";
   <div class="container nav-shell">
     <a class="brand" href="/" aria-label={`${site.name} Startseite`}>
       <img src="/images/brand/logo-hotel-horizontal-white.png" alt="" />
-      <span>{site.claim}</span>
     </a>
 
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" data-menu-toggle>
@@ -44,6 +43,11 @@ import { navigation, routes, site } from "@/data/site";
       </div>
 
       <div class="nav-actions">
+        <div class="language-switcher" aria-label="Sprache wählen">
+          <a class="lang-link active" href="/" lang="de" aria-current="page">DE</a>
+          <span aria-hidden="true">|</span>
+          <a class="lang-link" href="/en" lang="en">EN</a>
+        </div>
         <a class="contact-link" href={routes.contact}>Kontakt</a>
         <a class="button" href={routes.booking}>Buchen</a>
       </div>
@@ -95,7 +99,7 @@ import { navigation, routes, site } from "@/data/site";
     position: sticky;
     top: 0;
     z-index: 20;
-    border-bottom: 1px solid rgba(240, 207, 117, 0.14);
+    border-bottom: 1px solid rgba(163, 128, 82, 0.22);
     background: rgba(8, 7, 6, 0.88);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
@@ -110,13 +114,8 @@ import { navigation, routes, site } from "@/data/site";
   }
 
   .brand {
-    display: grid;
-    gap: 0.15rem;
-    color: var(--soft);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
   }
 
@@ -156,7 +155,8 @@ import { navigation, routes, site } from "@/data/site";
   }
 
   .nav-trigger,
-  .contact-link {
+  .contact-link,
+  .lang-link {
     border: 0;
     background: transparent;
     color: var(--muted);
@@ -181,8 +181,21 @@ import { navigation, routes, site } from "@/data/site";
 
   .nav-trigger:hover,
   .nav-trigger[aria-expanded="true"],
-  .contact-link:hover {
+  .contact-link:hover,
+  .lang-link:hover {
     color: var(--gold-bright);
+  }
+
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--soft);
+    margin-right: 0.35rem;
+  }
+
+  .lang-link.active {
+    color: var(--ink);
   }
 
   .mega-panel {
@@ -238,7 +251,7 @@ import { navigation, routes, site } from "@/data/site";
   }
 
   .mega-panel a:hover {
-    background: rgba(199, 164, 90, 0.09);
+    background: rgba(163, 128, 82, 0.16);
     color: var(--gold-bright);
   }
 
@@ -274,6 +287,11 @@ import { navigation, routes, site } from "@/data/site";
     .nav-actions {
       display: grid;
       align-items: stretch;
+    }
+
+    .language-switcher {
+      margin: 0.25rem 0 0.5rem;
+      padding-inline: 0.7rem;
     }
 
     .nav-trigger {

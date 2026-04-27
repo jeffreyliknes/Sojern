@@ -15,7 +15,7 @@ const featuredOffers = packages.slice(0, 3);
     <img class="hero-img" src="/images/home/entree.jpg" alt="" />
     <div class="hero-veil"></div>
     <div class="container hero-content">
-      <p class="eyebrow">Hotel mit Handschrift</p>
+      <p class="eyebrow hero-eyebrow">Hotel mit Handschrift</p>
       <h1 class="display hero-heading">Romantik Hotel<br />am Brühl</h1>
       <p class="hero-lede">Quedlinburg · Stille · Gastfreundschaft</p>
       <div class="hero-actions">
@@ -142,11 +142,16 @@ const featuredOffers = packages.slice(0, 3);
     position: relative;
     z-index: 1;
     display: grid;
-    gap: 1.5rem;
+    gap: 0.9rem;
     max-width: 700px;
   }
 
+  .hero-eyebrow {
+    margin: 0 0 0.1rem;
+  }
+
   .hero-heading {
+    margin: 0;
     font-size: clamp(4rem, 9vw, 9.5rem);
     color: var(--ink);
   }

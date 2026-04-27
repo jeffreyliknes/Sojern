@@ -38,19 +38,19 @@
   --font-display: "Luxus Brut", Georgia, serif;
   --font-body: "Source Sans Pro", "Helvetica Neue", sans-serif;
 
-  /* Palette — blackened boutique hotel with warm brass accents */
+  /* Palette — warm bronze driven by #A38052 */
   --ink: #fff8ec;
-  --muted: #d2bd91;
-  --soft: #9d8868;
-  --gold: #b98c3d;
-  --gold-bright: #f0cf75;
+  --muted: #c1ad8c;
+  --soft: #927b5c;
+  --gold: #a38052;
+  --gold-bright: #b7966a;
   --umber: #11100d;
   --umber-2: #1b1712;
   --charcoal: #0c0b09;
   --moss: #20251b;
   --wine: #321714;
   --stone: #eadcc0;
-  --line: rgba(240, 207, 117, 0.18);
+  --line: rgba(163, 128, 82, 0.24);
   --glass: rgba(10, 9, 7, 0.84);
   --shadow: 0 26px 90px rgba(0, 0, 0, 0.56);
 
@@ -75,7 +75,7 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(ellipse at 16% 0%, rgba(240, 207, 117, 0.08) 0%, transparent 44%),
+    radial-gradient(ellipse at 16% 0%, rgba(163, 128, 82, 0.1) 0%, transparent 44%),
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     linear-gradient(180deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
     #0c0b09;
@@ -183,7 +183,7 @@ button {
 
 .button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(199, 164, 90, 0.22);
+  box-shadow: 0 12px 32px rgba(163, 128, 82, 0.28);
 }
 
 .button.secondary {
@@ -193,7 +193,7 @@ button {
 }
 
 .button.secondary:hover {
-  border-color: rgba(210, 170, 80, 0.5);
+  border-color: rgba(163, 128, 82, 0.6);
 }
 
 .panel {
