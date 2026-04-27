@@ -5,7 +5,7 @@ import { navigation, routes, site } from "@/data/site";
 <header class="site-header" data-site-header>
   <div class="container nav-shell">
     <a class="brand" href="/" aria-label={`${site.name} Startseite`}>
-      <img src="/images/brand/logo.svg" alt="" />
+      <img src="/images/brand/logo-hotel-horizontal-white.png" alt="" />
       <span>{site.claim}</span>
     </a>
 
@@ -95,8 +95,8 @@ import { navigation, routes, site } from "@/data/site";
     position: sticky;
     top: 0;
     z-index: 20;
-    border-bottom: 1px solid rgba(210, 170, 80, 0.12);
-    background: rgba(22, 15, 9, 0.85);
+    border-bottom: 1px solid rgba(240, 207, 117, 0.14);
+    background: rgba(8, 7, 6, 0.88);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
   }
@@ -121,8 +121,9 @@ import { navigation, routes, site } from "@/data/site";
   }
 
   .brand img {
-    width: 170px;
-    filter: brightness(1.1) sepia(0.15);
+    width: clamp(170px, 18vw, 245px);
+    max-height: 52px;
+    object-fit: contain;
   }
 
   .menu-toggle {
@@ -194,8 +195,8 @@ import { navigation, routes, site } from "@/data/site";
     width: min(560px, calc(100vw - 40px));
     padding: 1.5rem;
     border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: rgba(26, 17, 10, 0.97);
+    border-radius: 0;
+    background: rgba(10, 9, 7, 0.98);
     box-shadow: var(--shadow);
     opacity: 0;
     pointer-events: none;
@@ -260,8 +261,8 @@ import { navigation, routes, site } from "@/data/site";
       flex-direction: column;
       padding: 1rem;
       border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: rgba(26, 17, 10, 0.98);
+      border-radius: 0;
+      background: rgba(10, 9, 7, 0.98);
       box-shadow: var(--shadow);
     }
 

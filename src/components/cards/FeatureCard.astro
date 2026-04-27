@@ -42,7 +42,9 @@ const Tag = href ? "a" : "article";
   }
 
   .image-wrap {
-    aspect-ratio: 4 / 3;
+    width: min(100%, 400px);
+    max-height: 400px;
+    aspect-ratio: 1;
     overflow: hidden;
   }
 

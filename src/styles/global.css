@@ -38,21 +38,21 @@
   --font-display: "Luxus Brut", Georgia, serif;
   --font-body: "Source Sans Pro", "Helvetica Neue", sans-serif;
 
-  /* Palette — warm dark, not black */
-  --ink: #f5e8d4;
-  --muted: #c2aa80;
-  --soft: #9a8465;
-  --gold: #c8a455;
-  --gold-bright: #dfc068;
-  --umber: #1c1510;
-  --umber-2: #261a12;
-  --charcoal: #191310;
-  --moss: #263022;
-  --wine: #4a221b;
-  --stone: #e8dcc6;
-  --line: rgba(210, 170, 80, 0.18);
-  --glass: rgba(25, 17, 10, 0.84);
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+  /* Palette — blackened boutique hotel with warm brass accents */
+  --ink: #fff8ec;
+  --muted: #d2bd91;
+  --soft: #9d8868;
+  --gold: #b98c3d;
+  --gold-bright: #f0cf75;
+  --umber: #11100d;
+  --umber-2: #1b1712;
+  --charcoal: #0c0b09;
+  --moss: #20251b;
+  --wine: #321714;
+  --stone: #eadcc0;
+  --line: rgba(240, 207, 117, 0.18);
+  --glass: rgba(10, 9, 7, 0.84);
+  --shadow: 0 26px 90px rgba(0, 0, 0, 0.56);
 
   /* Layout */
   --header-h: 72px;
@@ -68,16 +68,18 @@
 
 html {
   scroll-behavior: smooth;
-  background: #1a1510;
+  background: #0c0b09;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(ellipse at 18% 0%, rgba(199, 164, 90, 0.09) 0%, transparent 48%),
-    radial-gradient(ellipse at 82% 88%, rgba(120, 65, 20, 0.13) 0%, transparent 45%),
-    #1a1510;
+    radial-gradient(ellipse at 16% 0%, rgba(240, 207, 117, 0.08) 0%, transparent 44%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    #0c0b09;
+  background-size: auto, 120px 120px, 120px 120px, auto;
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 18px;
@@ -88,6 +90,11 @@ body {
 img {
   display: block;
   max-width: 100%;
+}
+
+main img:not(.hero-img) {
+  max-height: 400px;
+  object-fit: cover;
 }
 
 a {
@@ -132,7 +139,8 @@ button {
   font-size: clamp(3.2rem, 9vw, 8rem);
   font-weight: 400;
   line-height: 0.9;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 .section-title {
@@ -161,9 +169,9 @@ button {
   min-height: 46px;
   padding: 0.75rem 1.4rem;
   border: 1px solid transparent;
-  border-radius: 999px;
-  background: linear-gradient(150deg, var(--gold-bright), var(--gold) 55%, #7e5f28);
-  color: #18100a;
+  border-radius: 0;
+  background: linear-gradient(150deg, var(--gold-bright), var(--gold) 58%, #76521d);
+  color: #0c0b09;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -190,8 +198,10 @@ button {
 
 .panel {
   border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  background: linear-gradient(150deg, rgba(38, 26, 18, 0.92), rgba(22, 15, 9, 0.88));
+  border-radius: 0;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.035), transparent 44%),
+    linear-gradient(150deg, rgba(28, 22, 15, 0.94), rgba(10, 9, 7, 0.92));
   box-shadow: var(--shadow);
 }
 

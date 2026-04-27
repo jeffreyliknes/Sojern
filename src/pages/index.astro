@@ -179,15 +179,19 @@ const featuredOffers = packages.slice(0, 3);
 
   .rooms-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3px;
+    grid-template-columns: repeat(2, minmax(0, 400px));
+    justify-content: center;
+    gap: 1rem;
   }
 
   .room-card {
     position: relative;
     display: block;
     overflow: hidden;
-    aspect-ratio: 3 / 4;
+    width: min(100%, 400px);
+    max-height: 400px;
+    aspect-ratio: 1;
+    border: 1px solid var(--line);
   }
 
   .room-card img {
@@ -230,8 +234,10 @@ const featuredOffers = packages.slice(0, 3);
   .restaurant-section {
     margin-top: 9rem;
     display: grid;
-    grid-template-columns: minmax(360px, 0.72fr) 1fr;
-    min-height: 620px;
+    grid-template-columns: minmax(320px, 0.9fr) minmax(0, 400px);
+    justify-content: center;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
   }
 
   .restaurant-text {
@@ -240,6 +246,7 @@ const featuredOffers = packages.slice(0, 3);
     justify-content: center;
     gap: 1.5rem;
     padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 5vw, 5.5rem);
+    border: 1px solid var(--line);
     background: var(--umber-2);
   }
 
@@ -266,12 +273,15 @@ const featuredOffers = packages.slice(0, 3);
   }
 
   .restaurant-image {
+    width: min(100%, 400px);
+    max-height: 400px;
     overflow: hidden;
+    border: 1px solid var(--line);
   }
 
   .restaurant-image img {
     width: 100%;
-    height: 100%;
+    height: 400px;
     object-fit: cover;
     transition: transform 900ms ease;
   }
@@ -287,9 +297,9 @@ const featuredOffers = packages.slice(0, 3);
 
   .events-inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr minmax(0, 400px);
+    align-items: stretch;
     overflow: hidden;
-    min-height: 440px;
   }
 
   .events-text {
@@ -317,7 +327,7 @@ const featuredOffers = packages.slice(0, 3);
 
   .events-image {
     width: 100%;
-    height: 100%;
+    height: 400px;
     object-fit: cover;
   }
 
@@ -367,16 +377,15 @@ const featuredOffers = packages.slice(0, 3);
     }
 
     .room-card {
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 1;
     }
 
     .restaurant-section {
       grid-template-columns: 1fr;
-      min-height: auto;
     }
 
     .restaurant-image {
-      min-height: 380px;
+      justify-self: center;
     }
 
     .events-inner {

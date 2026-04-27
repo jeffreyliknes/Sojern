@@ -123,16 +123,19 @@ const amenities = klassik?.amenities ?? [];
 
   .room-gallery {
     display: grid;
-    grid-template-columns: 1fr 0.55fr;
+    grid-template-columns: minmax(0, 400px) 1fr;
     gap: 2.5rem;
     align-items: start;
   }
 
   .room-gallery > img {
     width: 100%;
-    aspect-ratio: 4 / 5;
+    max-width: 400px;
+    max-height: 400px;
+    aspect-ratio: 1;
     object-fit: cover;
-    border-radius: var(--radius-lg);
+    border: 1px solid var(--line);
+    border-radius: 0;
   }
 
   .gallery-aside {
@@ -219,7 +222,7 @@ const amenities = klassik?.amenities ?? [];
     }
 
     .room-gallery > img {
-      aspect-ratio: 3 / 2;
+      aspect-ratio: 1;
     }
 
     .amenities {
