@@ -1,8 +1,6 @@
 ---
-import BookingStrip from "@/components/sections/BookingStrip.astro";
 import OfferCard from "@/components/cards/OfferCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { routes } from "@/data/site";
 import packages from "@/data/packages.json";
 
 const featuredOffers = packages.slice(0, 3);
@@ -18,14 +16,8 @@ const featuredOffers = packages.slice(0, 3);
       <p class="eyebrow hero-eyebrow">Hotel mit Handschrift</p>
       <h1 class="display hero-heading">Romantik Hotel<br />am Brühl</h1>
       <p class="hero-lede">Quedlinburg · Stille · Gastfreundschaft</p>
-      <div class="hero-actions">
-        <a class="button" href={routes.booking}>Aufenthalt buchen</a>
-        <a class="button secondary" href="/klassik-zimmer">Zimmer entdecken</a>
-      </div>
     </div>
   </section>
-
-  <BookingStrip />
 
   <!-- ROOMS: Editorial full-bleed image grid -->
   <section class="rooms-section">
@@ -50,6 +42,30 @@ const featuredOffers = packages.slice(0, 3);
           <span class="link-arrow">Entdecken</span>
         </div>
       </a>
+      <a href="/comfort-zimmer" class="room-card">
+        <img src="/images/rooms/comfort-1.jpg" alt="Comfort Zimmer" />
+        <div class="room-card-text">
+          <span class="eyebrow">Comfort Zimmer</span>
+          <h3>Comfort</h3>
+          <span class="link-arrow">Entdecken</span>
+        </div>
+      </a>
+      <a href="/apartment" class="room-card">
+        <img src="/images/rooms/apartment-1.jpg" alt="Apartment" />
+        <div class="room-card-text">
+          <span class="eyebrow">Apartment</span>
+          <h3>Apartment</h3>
+          <span class="link-arrow">Entdecken</span>
+        </div>
+      </a>
+      <a href="/ferienwohnung" class="room-card">
+        <img src="/images/rooms/ferienwohnung-1.jpg" alt="Ferienwohnung" />
+        <div class="room-card-text">
+          <span class="eyebrow">Ferienwohnung</span>
+          <h3>Ferienwohnung</h3>
+          <span class="link-arrow">Entdecken</span>
+        </div>
+      </a>
     </div>
     <div class="container rooms-cta">
       <a class="link-arrow" href="/comfort-zimmer">Alle Zimmer ansehen</a>
@@ -57,7 +73,7 @@ const featuredOffers = packages.slice(0, 3);
   </section>
 
   <!-- RESTAURANT: Split cinematic -->
-  <section class="restaurant-section">
+  <section class="container restaurant-section">
     <div class="restaurant-text">
       <p class="eyebrow">Unsere Restaurants</p>
       <h2>Essen.<br />Genießen.<br />Verführen.</h2>
@@ -164,13 +180,6 @@ const featuredOffers = packages.slice(0, 3);
     margin: 0;
   }
 
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.85rem;
-    margin-top: 0.25rem;
-  }
-
   /* ─── ROOMS ──────────────────────────────────────────── */
   .rooms-section {
     margin-top: 8rem;
@@ -184,8 +193,7 @@ const featuredOffers = packages.slice(0, 3);
 
   .rooms-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 400px));
-    justify-content: center;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 1rem;
   }
 
@@ -193,8 +201,8 @@ const featuredOffers = packages.slice(0, 3);
     position: relative;
     display: block;
     overflow: hidden;
-    width: min(100%, 400px);
-    max-height: 400px;
+    width: 100%;
+    max-height: 320px;
     aspect-ratio: 1;
     border: 1px solid var(--line);
   }
@@ -215,7 +223,7 @@ const featuredOffers = packages.slice(0, 3);
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 3rem 2.25rem 2.25rem;
+    padding: 2rem 1.25rem 1.2rem;
     background: linear-gradient(to top, rgba(15, 9, 5, 0.94) 0%, rgba(15, 9, 5, 0.4) 55%, transparent 100%);
     display: grid;
     gap: 0.5rem;
@@ -224,7 +232,7 @@ const featuredOffers = packages.slice(0, 3);
   .room-card h3 {
     margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(2.8rem, 4.5vw, 4.5rem);
+    font-size: clamp(2rem, 3vw, 2.8rem);
     font-weight: 400;
     line-height: 1;
     color: var(--ink);
@@ -239,10 +247,11 @@ const featuredOffers = packages.slice(0, 3);
   .restaurant-section {
     margin-top: 9rem;
     display: grid;
-    grid-template-columns: minmax(320px, 0.9fr) minmax(0, 400px);
-    justify-content: center;
-    align-items: center;
-    gap: clamp(2rem, 5vw, 5rem);
+    grid-template-columns: 1fr minmax(0, 400px);
+    align-items: stretch;
+    gap: 0;
+    border: 1px solid var(--line);
+    overflow: hidden;
   }
 
   .restaurant-text {
@@ -251,7 +260,7 @@ const featuredOffers = packages.slice(0, 3);
     justify-content: center;
     gap: 1.5rem;
     padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 5vw, 5.5rem);
-    border: 1px solid var(--line);
+    border-right: 1px solid var(--line);
     background: var(--umber-2);
   }
 
@@ -377,8 +386,7 @@ const featuredOffers = packages.slice(0, 3);
   /* ─── RESPONSIVE ─────────────────────────────────────── */
   @media (max-width: 900px) {
     .rooms-grid {
-      grid-template-columns: 1fr;
-      gap: 3px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .room-card {
@@ -387,10 +395,11 @@ const featuredOffers = packages.slice(0, 3);
 
     .restaurant-section {
       grid-template-columns: 1fr;
+      gap: 0;
     }
 
     .restaurant-image {
-      justify-self: center;
+      justify-self: stretch;
     }
 
     .events-inner {
@@ -417,6 +426,10 @@ const featuredOffers = packages.slice(0, 3);
   }
 
   @media (max-width: 600px) {
+    .rooms-grid {
+      grid-template-columns: 1fr;
+    }
+
     .hero {
       padding-bottom: 5rem;
     }
