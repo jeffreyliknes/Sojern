@@ -76,10 +76,7 @@ body {
   min-width: 320px;
   background:
     radial-gradient(ellipse at 16% 0%, rgba(163, 128, 82, 0.1) 0%, transparent 44%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
     #0c0b09;
-  background-size: auto, 120px 120px, 120px 120px, auto;
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 18px;
